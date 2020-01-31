@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class SpaceShipBuilder : MonoBehaviour
 {
-
+    public float spawnerDelay;
     public int shipColumnCount;
 
     public int shipRowCount;
@@ -38,15 +38,27 @@ public class SpaceShipBuilder : MonoBehaviour
                 partsInColumn.Add(ssp);
                 
                 spawnPos -= new Vector3(0,0,  shipPart.transform.localScale.z);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(spawnerDelay);
             }
-
             if (horizontalDoorCount < 1)
             {
                 partsInColumn[Random.Range(0, shipRowCount - 1)].SpawnDoor(c < shipColumnCount - 1 ? 3 : 1);
             }
+
+            HandleAttachments(c, partsInColumn);
             spawnPos = startPos - new Vector3(c * shipPart.transform.localScale.x, 0, 0);
             spawnPos -= new Vector3(shipPart.transform.localScale.x, 0, 0);
+        }
+    }
+
+    private void HandleAttachments(int column, List<SpaceShipPart> sspList)
+    {
+        if (column == shipColumnCount - 1)
+        {
+            SpaceShipPart spaceShipPart = sspList[Random.Range(0, sspList.Count - 1)];
+
+            spaceShipPart.attachmentSpawner.spawnsWithBooster = true;
+            spaceShipPart.attachmentSpawner.Spawn();
         }
     }
 

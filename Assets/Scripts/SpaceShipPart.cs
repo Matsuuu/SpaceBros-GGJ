@@ -17,13 +17,15 @@ public class SpaceShipPart : MonoBehaviour
     public float doorSpawnOffset;
 
     public GameObject shipDoor;
-    public bool mustHaveHorizontalDoor;
-    public int horizontalDoorCount;
+    public int horizontalDoorCount = 0;
+    public SpaceShipAttachmentSpawner attachmentSpawner;
 
     private int spawnedDoorCount;
     // Start is called before the first frame update
     void Start()
     {
+        attachmentSpawner = GetComponent<SpaceShipAttachmentSpawner>();
+        renderer = GetComponent<Renderer>();
         CheckExits();
     }
 
@@ -31,7 +33,6 @@ public class SpaceShipPart : MonoBehaviour
     {
         shipDoor = (GameObject) Resources.Load("Prefabs/ShipDoor");
         doorSpawnOffset = transform.localScale.x / 2;
-        renderer = GetComponent<Renderer>();
         CreateDoors();
         return horizontalDoorCount;
     }
@@ -81,11 +82,6 @@ public class SpaceShipPart : MonoBehaviour
 
     private void CreateDoors()
     {
-        if (mustHaveHorizontalDoor)
-        {
-            SpawnDoor(possibleDoors[3] ? 3 : 1);
-            return;
-        }
         for (int i = 0; i < 4; i++)
         {
             if (!possibleDoors[i])
