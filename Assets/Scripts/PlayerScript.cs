@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerScript : MonoBehaviour
+{
+    public float maxMovementSpeed;
+
+    public float currentMovementSpeed;
+
+    public float speedChangeIncrement;
+
+    public bool hasMovement;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        HandleMovement();
+    }
+
+    private void HandleMovement()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        if (HasMovement(x, y))
+        {
+            MoveUser(x, y);
+        }
+        else
+        {
+            DecreaseSpeed();
+        }
+    }
+
+    private bool HasMovement(float x, float y)
+    {
+        hasMovement = x >= 0.20f || x <= -0.20f || y >= 0.20f || y <= -0.20f;
+        return hasMovement;
+    }
+
+    private void MoveUser(float x, float y)
+    {
+        if (currentMovementSpeed <= maxMovementSpeed)
+        {
+            currentMovementSpeed += speedChangeIncrement;
+        }
+        //transform.position += transform.right * currentMovementSpeed * Time.deltaTime * x;
+        transform.position += new Vector3(x, 0, y) * currentMovementSpeed * Time.deltaTime;
+    }
+
+    private void DecreaseSpeed()
+    {
+        if (currentMovementSpeed >= 0)
+        {
+            currentMovementSpeed -= speedChangeIncrement;
+        }
+    }
+}
