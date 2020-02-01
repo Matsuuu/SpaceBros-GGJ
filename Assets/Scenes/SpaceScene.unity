@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 98180167}
   - component: {fileID: 98180166}
   - component: {fileID: 98180165}
+  - component: {fileID: 98180169}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -215,6 +216,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98180169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98180164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c877b0d139df4698e92bb48f39669246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
 --- !u!1 &626408281
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerDelay: 0.1
-  shipColumnCount: 4
+  shipColumnCount: 2
   shipRowCount: 2
   doorSpawnPossibility: 10
 --- !u!1001 &1803811208379799372
@@ -804,6 +818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917695220131521869, guid: 247a11ac0e421b5b8b66310dd94176de,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3917695220131521871, guid: 247a11ac0e421b5b8b66310dd94176de,
         type: 3}
@@ -869,6 +888,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1615262690}
     m_Modifications:
+    - target: {fileID: 3233221783976938008, guid: c63caf3871844a301ad0715ed864609b,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233221783976938008, guid: c63caf3871844a301ad0715ed864609b,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3233221783976938010, guid: c63caf3871844a301ad0715ed864609b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -923,6 +952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233221783976938011, guid: c63caf3871844a301ad0715ed864609b,
+        type: 3}
+      propertyPath: maxMovementSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3233221783976938086, guid: c63caf3871844a301ad0715ed864609b,
         type: 3}

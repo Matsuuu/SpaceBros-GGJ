@@ -55,7 +55,7 @@ MonoBehaviour:
     type: 3}
   exhaustTurnSpeed: 30
   turningSpeed: 500
-  speed: 300
+  speed: 100
   exhaust: {fileID: 2303827419723272207}
   spaceShip: {fileID: 0}
   particleSystems:
