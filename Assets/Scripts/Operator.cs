@@ -6,6 +6,7 @@ public class Operator : MonoBehaviour
     public bool operating = false;
     public Operatable operatableInVicinity = null;
     public PlayerScript playerScript;
+    public Rigidbody rb;
 
     public string use;
     public string mount;
@@ -14,6 +15,7 @@ public class Operator : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         playerScript = GetComponent<PlayerScript>();
     }
 
@@ -44,6 +46,7 @@ public class Operator : MonoBehaviour
             return;
         }
 
+        rb.isKinematic = true;
         operating = true;
         operatableInVicinity.StartOperating(this);
         playerScript.canMove = false;
@@ -51,6 +54,7 @@ public class Operator : MonoBehaviour
 
     public void StopOperating()
     {
+        rb.isKinematic = false;
         operating = false;
         playerScript.canMove = true;
         operatableInVicinity.StopOperating();

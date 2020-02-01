@@ -13,6 +13,8 @@ public class SpaceShipBuilder : MonoBehaviour
     public int doorSpawnPossibility;
 
     private GameObject shipPart;
+
+    private List<SpaceShipPart> allParts = new List<SpaceShipPart>();
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class SpaceShipBuilder : MonoBehaviour
                 SpaceShipPart ssp = spaceShipPart.GetComponent<SpaceShipPart>();
                 horizontalDoorCount += CalculatePossibleDoors(r, c, ssp);
                 partsInColumn.Add(ssp);
+                allParts.Add(ssp);
                 
                 spawnPos -= new Vector3(0,0,  shipPart.transform.localScale.z);
                 yield return new WaitForSeconds(spawnerDelay);
@@ -49,6 +52,12 @@ public class SpaceShipBuilder : MonoBehaviour
             spawnPos = startPos - new Vector3(c * shipPart.transform.localScale.x, 0, 0);
             spawnPos -= new Vector3(shipPart.transform.localScale.x, 0, 0);
         }
+
+        SetSteeringWheel();
+        allParts.ForEach(part =>
+        {
+            part.attachmentSpawner.Spawn();
+        });
     }
 
     private void HandleAttachments(int column, List<SpaceShipPart> sspList)
@@ -58,14 +67,13 @@ public class SpaceShipBuilder : MonoBehaviour
             SpaceShipPart spaceShipPart = sspList[Random.Range(0, sspList.Count)];
 
             spaceShipPart.attachmentSpawner.spawnsWithBooster = true;
-            spaceShipPart.attachmentSpawner.Spawn();
         }
     }
 
-    // Update is called once per frame
-
-    void Update()
+    private void SetSteeringWheel()
     {
+        SpaceShipAttachmentSpawner spaceShipAttachmentSpawner = allParts[Random.Range(0, allParts.Count)].attachmentSpawner;
+        spaceShipAttachmentSpawner.spawnsWithSteeringWheel = true;
         
     }
 

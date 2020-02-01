@@ -12,6 +12,7 @@ public class Operatable : MonoBehaviour
     public List<Operator> operatorsInVicinity;
 
     public Vector3 operatorIconSpawnLocation;
+    public float operatorIconSpawnScale;
     public Quaternion operatorIconSpawnRotation;
     public GameObject operateIcon;
 
@@ -78,6 +79,7 @@ public class Operatable : MonoBehaviour
         {
             operateIconInstance = Instantiate(operateIcon, transform.position + operatorIconSpawnLocation,
                 operatorIconSpawnRotation, transform);
+            operateIconInstance.transform.localScale = new Vector3(operatorIconSpawnScale,operatorIconSpawnScale,operatorIconSpawnScale);
         }
     }
 }

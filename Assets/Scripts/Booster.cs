@@ -12,10 +12,15 @@ public class Booster : Operatable
     public Transform exhaust;
 
     public Rigidbody spaceShip;
+
+    public List<ParticleSystem> particleSystems;
+
+    private bool gasStarted;
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
+        SetParticleRate(0);
         spaceShip = GameObject.FindGameObjectWithTag("SpaceShip").GetComponent<Rigidbody>();
     }
 
@@ -35,11 +40,34 @@ public class Booster : Operatable
             {
                 GasGasGas();
             }
+            else
+            {
+                if (gasStarted)
+                {
+                    gasStarted = false;
+                    SetParticleRate(0);
+                }
+            }
         }
     }
 
+    private void SetParticleRate(int rate)
+    {
+        particleSystems.ForEach(ps =>
+        {
+            ParticleSystem.EmissionModule emissionModule = ps.emission;
+            emissionModule.rateOverTime = rate;
+        });
+    }
+
+
     private void GasGasGas()
     {
+        if (!gasStarted)
+        {
+            gasStarted = true;
+            SetParticleRate(50);
+        }
         float direction = exhaust.rotation.y * -1;
         
         Vector3 force = new Vector3( speed, 0,direction * turningSpeed);
