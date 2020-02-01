@@ -8,6 +8,11 @@ public class DoorScript : MonoBehaviour
     public List<Collider> touchingWalls;
 
     public List<Collider> playerColliders;
+
+    public Transform doorOne;
+    public Transform doorTwo;
+
+    public bool sideDoor;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,9 @@ public class DoorScript : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            doorOne.transform.position = doorOne.transform.position + (sideDoor ? Vector3.forward : Vector3.left);
+            doorTwo.transform.position = doorTwo.transform.position + (sideDoor ? Vector3.back : Vector3.right);
+            
             touchingWalls.ForEach(wall => playerColliders.ForEach(player => Physics.IgnoreCollision(wall, player)));
         }
     }
@@ -40,7 +48,10 @@ public class DoorScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
+        {   
+            doorOne.transform.position = doorOne.transform.position - (sideDoor ? Vector3.forward : Vector3.left);
+            doorTwo.transform.position = doorTwo.transform.position - (sideDoor ? Vector3.back : Vector3.right);
+            
             touchingWalls.ForEach(wall => playerColliders.ForEach(player => Physics.IgnoreCollision(wall, player, false)));
         }
     }
