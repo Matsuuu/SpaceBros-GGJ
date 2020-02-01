@@ -121,7 +121,7 @@ public class SpaceShipBuilder : MonoBehaviour
         for (int i = 0; i < turretCount; i++)
         {
             SpaceShipAttachmentSpawner spaceShipAttachmentSpawner = edgeParts[Random.Range(0, edgeParts.Count)].attachmentSpawner;
-            while (spaceShipAttachmentSpawner.spawnsWithTurret)
+            while (spaceShipAttachmentSpawner.spawnsWithTurret || spaceShipAttachmentSpawner.spawnsWithBooster)
             {// Make sure no double turret rooms
                 spaceShipAttachmentSpawner = edgeParts[Random.Range(0, edgeParts.Count)].attachmentSpawner;
             }

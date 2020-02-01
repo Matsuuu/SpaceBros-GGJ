@@ -81,13 +81,13 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
         switch (side)
         {
             case SpaceShipBuilder.SpaceShipSide.UP:
-                return new Vector3(3, 0, 6);
+                return new Vector3(1, -4, 6.5f);
             case SpaceShipBuilder.SpaceShipSide.RIGHT:
-                return new Vector3(6, 0, -2.5f);
+                return new Vector3(6, -4, -1);
             case SpaceShipBuilder.SpaceShipSide.DOWN:
-                return new Vector3(-3, 0, -6);
+                return new Vector3(-1, -4, -7);
             case SpaceShipBuilder.SpaceShipSide.LEFT:
-                return new Vector3(-6, 0, 3);
+                return new Vector3(-6, -4, 1);
             case SpaceShipBuilder.SpaceShipSide.NONE:
                 return Vector3.zero;
             default:
