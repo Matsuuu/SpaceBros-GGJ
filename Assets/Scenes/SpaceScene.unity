@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerDelay: 0.1
-  shipColumnCount: 2
+  shipColumnCount: 4
   shipRowCount: 2
   doorSpawnPossibility: 10
 --- !u!1001 &1803811208379799372
