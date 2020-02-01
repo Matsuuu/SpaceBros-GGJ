@@ -9,6 +9,7 @@ TagManager:
   - SpaceShip
   - Enemy
   - PlayerProjectile
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

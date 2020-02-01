@@ -70,6 +70,23 @@ public class SpaceShipPart : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyProjectile"))
+        {
+            StartCoroutine(DamageSplash());
+            Destroy(other.transform.parent.gameObject);
+        }
+    }
+
+    IEnumerator DamageSplash()
+    {
+        Color materialColor = renderer.material.color;
+        renderer.material.color = Color.red;
+        yield return new WaitForSeconds(0.4f);
+        renderer.material.color = materialColor;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
