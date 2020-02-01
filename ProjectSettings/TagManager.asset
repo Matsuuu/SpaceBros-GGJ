@@ -7,6 +7,8 @@ TagManager:
   - Door
   - Wall
   - SpaceShip
+  - Enemy
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

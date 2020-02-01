@@ -12036,7 +12036,7 @@ MonoBehaviour:
   operatorIconSpawnRotation: {x: 0, y: 0, z: 0, w: 0}
   operateIcon: {fileID: 0}
   spaceShip: {fileID: 0}
-  turningSpeed: 10
+  turningSpeed: 50
 --- !u!135 &1379309948659583343
 SphereCollider:
   m_ObjectHideFlags: 0

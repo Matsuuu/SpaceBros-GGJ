@@ -72,5 +72,6 @@ public class Booster : Operatable
         
         Vector3 force = new Vector3( speed, 0,direction * turningSpeed);
         spaceShip.AddRelativeForce(force);
+        Debug.Log(spaceShip.velocity);
     }
 }

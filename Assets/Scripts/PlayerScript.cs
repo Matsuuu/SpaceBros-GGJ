@@ -15,6 +15,8 @@ public class PlayerScript : MonoBehaviour
 
     public bool canMove;
     public int playerNum;
+    private Rigidbody rb;
+    private Rigidbody ship;
 
 
     // Control keys
@@ -26,6 +28,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        ship = GameObject.FindGameObjectWithTag("SpaceShip").GetComponent<Rigidbody>();
         canMove = true;
     }
 
@@ -33,6 +37,11 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         HandleMovement();
+    }
+
+    private void LateUpdate()
+    {
+        rb.velocity = ship.velocity;
     }
 
     private void HandleMovement()

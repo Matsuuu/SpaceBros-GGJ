@@ -6,13 +6,17 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="BackgroundScript.cs" t="Include" />
-        <e p="Laser.cs" t="Include" />
+        <e p="EnemyFalcon.cs" t="Include" />
+        <e p="EnemyHealth.cs" t="Include" />
+        <e p="EnemyLaser.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="BackgroundScript.cs" t="Include" />
           <e p="Booster.cs" t="Include" />
           <e p="CameraFollowScript.cs" t="Include" />
           <e p="DoorScript.cs" t="Include" />
+          <e p="EnemyShip.cs" t="Include" />
           <e p="Hover.cs" t="Include" />
+          <e p="Laser.cs" t="Include" />
           <e p="Operatable.cs" t="Include" />
           <e p="Operator.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
@@ -21,8 +25,10 @@
           <e p="SpaceShipBuilder.cs" t="Include" />
           <e p="SpaceShipPart.cs" t="Include" />
           <e p="SteeringWheel.cs" t="Include" />
+          <e p="Turret.cs" t="Include" />
         </e>
-        <e p="Turret.cs" t="Include" />
+        <e p="ShipHealthSystem.cs" t="Include" />
+        <e p="SpaceShip.cs" t="Include" />
       </e>
       <e p="SpaceBros.sln" t="IncludeFlat" />
       <e p="Temp/bin" t="ExcludeRecursive" />
