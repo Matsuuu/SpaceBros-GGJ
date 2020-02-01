@@ -32,7 +32,7 @@ public class SpaceShipPart : MonoBehaviour
     public int Init()
     {
         shipDoor = (GameObject) Resources.Load("Prefabs/ShipDoor");
-        doorSpawnOffset = transform.localScale.x / 2;
+        doorSpawnOffset = 5;
         CreateDoors();
         return horizontalDoorCount;
     }
@@ -134,7 +134,12 @@ public class SpaceShipPart : MonoBehaviour
                 horizontalDoorCount++;
                 break;
         }
-        Instantiate(shipDoor, transform.position + offsetVector * doorSpawnOffset - heightOffset, rotation, transform);
+        GameObject newDoor = Instantiate(shipDoor, transform.position + offsetVector * doorSpawnOffset - heightOffset, rotation, transform);
+        if (position == 1 || position == 3)
+        {
+            newDoor.GetComponent<DoorScript>().sideDoor = true;
+        }
+
         spawnedDoorCount++;
     }
 }
