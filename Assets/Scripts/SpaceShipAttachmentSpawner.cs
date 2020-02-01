@@ -13,6 +13,7 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
     private string attachmentName;
 
     private Vector3 attachmentOffset = Vector3.zero;
+    private Quaternion attachmentRotation = Quaternion.identity;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
             return;
         }
         attachment = Resources.Load<GameObject>("Prefabs/" + attachmentName);
-        Instantiate(attachment, transform.position, transform.rotation, transform);
+        Instantiate(attachment, transform.position + attachmentOffset, attachmentRotation, transform);
     }
 
     private void SetAttachmentSpecs()
@@ -41,7 +42,8 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
         if (spawnsWithBooster)
         {
             attachmentName = "SpaceShipBooster";
-            attachmentOffset = new Vector3(-(transform.localScale.x / 2), 0, 0);
+            attachmentOffset = new Vector3(-(transform.localScale.x), 0, 0);
+            attachmentRotation = Quaternion.Euler(new Vector3(0,0,90));
         }
 
         if (spawnsWithTurret)

@@ -7,7 +7,7 @@ using Random = System.Random;
 public class SpaceShipPart : MonoBehaviour
 {
 
-    private Renderer renderer;
+    private new Renderer renderer;
     public bool isTouchingDoor;
 
     public bool[] possibleDoors;
@@ -111,6 +111,7 @@ public class SpaceShipPart : MonoBehaviour
     {
         Vector3 offsetVector = Vector3.up;
         Quaternion rotation = transform.rotation;
+        Vector3 heightOffset = new Vector3(0, 2, 0);
         switch (position)
         {
             case 0:
@@ -133,7 +134,7 @@ public class SpaceShipPart : MonoBehaviour
                 horizontalDoorCount++;
                 break;
         }
-        Instantiate(shipDoor, transform.position + offsetVector * doorSpawnOffset, rotation, transform);
+        Instantiate(shipDoor, transform.position + offsetVector * doorSpawnOffset - heightOffset, rotation, transform);
         spawnedDoorCount++;
     }
 }

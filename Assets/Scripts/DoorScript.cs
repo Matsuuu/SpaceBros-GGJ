@@ -7,11 +7,15 @@ public class DoorScript : MonoBehaviour
 {
     public List<Collider> touchingWalls;
 
-    public Collider playerCollider;
+    public List<Collider> playerColliders;
     // Start is called before the first frame update
     void Start()
     {
-        playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            playerColliders.Add(player.GetComponent<Collider>());
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class DoorScript : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            touchingWalls.ForEach(wall => Physics.IgnoreCollision(wall, playerCollider));
+            touchingWalls.ForEach(wall => playerColliders.ForEach(player => Physics.IgnoreCollision(wall, player)));
         }
     }
 
@@ -37,7 +41,7 @@ public class DoorScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            touchingWalls.ForEach(wall => Physics.IgnoreCollision(wall, playerCollider, false));
+            touchingWalls.ForEach(wall => playerColliders.ForEach(player => Physics.IgnoreCollision(wall, player, false)));
         }
     }
 }
