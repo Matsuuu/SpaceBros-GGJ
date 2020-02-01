@@ -116,8 +116,8 @@ MonoBehaviour:
   playerNum: 1
   horizontal: Horizontal
   vertical: Vertical
-  use: Fire1
-  mount: Fire2
+  use: Fire2
+  mount: Fire1
 --- !u!54 &3233221783976938008
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,3 +149,7 @@ MonoBehaviour:
   operating: 0
   operatableInVicinity: {fileID: 0}
   playerScript: {fileID: 0}
+  use: Fire2
+  mount: Fire1
+  vertical: Vertical
+  horizontal: Horizontal

@@ -24,14 +24,14 @@ public class Booster : Operatable
     {
         if (isBeingOperatedOn)
         {
-            float y = Input.GetAxis("Vertical");
+            float y = Input.GetAxis(personOperating.vertical);
             float rotationY = exhaust.rotation.y;
             if ((y >= 0.2f && rotationY <= 0.2f) || (y <= 0.2f && rotationY >= -0.2f))
             {
                 exhaust.Rotate(Vector3.right * (y * Time.deltaTime * exhaustTurnSpeed));
             }
 
-            if (Input.GetButton("Fire2"))
+            if (personOperating.IsOperatingButtonBeingPressed())
             {
                 GasGasGas();
             }

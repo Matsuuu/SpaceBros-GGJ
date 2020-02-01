@@ -116,8 +116,8 @@ MonoBehaviour:
   playerNum: 1
   horizontal: P2Horizontal
   vertical: P2Vertical
-  use: P2Fire1
-  mount: P2Fire2
+  use: P2Fire2
+  mount: P2Fire1
 --- !u!54 &3917695220131521869
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,3 +149,7 @@ MonoBehaviour:
   operating: 0
   operatableInVicinity: {fileID: 0}
   playerScript: {fileID: 0}
+  use: P2Fire2
+  mount: P2Fire1
+  vertical: P2Vertical
+  horizontal: P2Horizontal

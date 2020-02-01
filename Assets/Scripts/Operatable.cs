@@ -44,6 +44,10 @@ public class Operatable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Operator @operator = other.GetComponent<Operator>();
+            if (@operator == personOperating)
+            {
+                return;
+            }
             @operator.operatableInVicinity = null;
             operatorsInVicinity.Remove(@operator);
             Destroy(operateIconInstance);
@@ -52,6 +56,10 @@ public class Operatable : MonoBehaviour
 
     public void StartOperating(Operator @operator)
     {
+        if (isBeingOperatedOn)
+        {
+            return;
+        }
         personOperating = @operator;
         isBeingOperatedOn = true;
         Destroy(operateIconInstance);
@@ -66,7 +74,10 @@ public class Operatable : MonoBehaviour
 
     private void CreateOperateIcon()
     {
-        operateIconInstance = Instantiate(operateIcon, transform.position + operatorIconSpawnLocation,
-            operatorIconSpawnRotation, transform);
+        if (!operateIconInstance && !isBeingOperatedOn)
+        {
+            operateIconInstance = Instantiate(operateIcon, transform.position + operatorIconSpawnLocation,
+                operatorIconSpawnRotation, transform);
+        }
     }
 }

@@ -7,6 +7,11 @@ public class Operator : MonoBehaviour
     public Operatable operatableInVicinity = null;
     public PlayerScript playerScript;
 
+    public string use;
+    public string mount;
+    public string vertical;
+    public string horizontal;
+
     private void Start()
     {
         playerScript = GetComponent<PlayerScript>();
@@ -14,7 +19,7 @@ public class Operator : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (IsMountButtonBeingPressed())
         {
             HandleOperating();
         }
@@ -34,7 +39,7 @@ public class Operator : MonoBehaviour
 
     public void StartOperating()
     {
-        if (operatableInVicinity == null)
+        if (operatableInVicinity == null || operatableInVicinity.personOperating != null)
         {
             return;
         }
@@ -49,5 +54,15 @@ public class Operator : MonoBehaviour
         operating = false;
         playerScript.canMove = true;
         operatableInVicinity.StopOperating();
+    }
+
+    public bool IsOperatingButtonBeingPressed()
+    {
+        return Input.GetButton(use) || Input.GetAxis(use) >= 0.2f;
+    }
+
+    public bool IsMountButtonBeingPressed()
+    {
+        return Input.GetButtonDown(mount);
     }
 }
