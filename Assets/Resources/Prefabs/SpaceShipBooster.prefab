@@ -55,7 +55,7 @@ MonoBehaviour:
     type: 3}
   exhaustTurnSpeed: 30
   turningSpeed: 500
-  speed: 100
+  speed: 26
   exhaust: {fileID: 2303827419723272207}
   spaceShip: {fileID: 0}
   particleSystems:
@@ -9747,9 +9747,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b00e3d006062421b30c557f5556686, type: 3}
---- !u!4 &7242072230727009347 stripped
+--- !u!4 &9075595811437344268 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1934745707684433806, guid: b8b00e3d006062421b30c557f5556686,
+  m_CorrespondingSourceObject: {fileID: 264134462373412289, guid: b8b00e3d006062421b30c557f5556686,
     type: 3}
   m_PrefabInstance: {fileID: 9104196704668371917}
   m_PrefabAsset: {fileID: 0}
@@ -9759,9 +9759,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9104196704668371917}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &9075595811437344268 stripped
+--- !u!4 &7242072230727009347 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 264134462373412289, guid: b8b00e3d006062421b30c557f5556686,
+  m_CorrespondingSourceObject: {fileID: 1934745707684433806, guid: b8b00e3d006062421b30c557f5556686,
     type: 3}
   m_PrefabInstance: {fileID: 9104196704668371917}
   m_PrefabAsset: {fileID: 0}
