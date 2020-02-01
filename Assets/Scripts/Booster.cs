@@ -29,11 +29,11 @@ public class Booster : Operatable
     {
         if (isBeingOperatedOn)
         {
-            float y = Input.GetAxis(personOperating.vertical);
+            float h = Input.GetAxis(personOperating.horizontal);
             float rotationY = exhaust.rotation.y;
-            if ((y >= 0.2f && rotationY <= 0.2f) || (y <= 0.2f && rotationY >= -0.2f))
+            if ((h >= 0.2f && rotationY <= 0.2f) || (h <= 0.2f && rotationY >= -0.2f))
             {
-                exhaust.Rotate(Vector3.right * (y * Time.deltaTime * exhaustTurnSpeed));
+                exhaust.Rotate(Vector3.right * (h * Time.deltaTime * exhaustTurnSpeed));
             }
 
             if (personOperating.IsOperatingButtonBeingPressed())

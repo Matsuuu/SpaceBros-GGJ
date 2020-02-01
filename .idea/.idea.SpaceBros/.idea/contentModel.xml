@@ -21,6 +21,7 @@
           <e p="SpaceShipPart.cs" t="Include" />
           <e p="SteeringWheel.cs" t="Include" />
         </e>
+        <e p="Turret.cs" t="Include" />
       </e>
       <e p="SpaceBros.sln" t="IncludeFlat" />
       <e p="Temp/bin" t="ExcludeRecursive" />
