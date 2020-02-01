@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Wall
+  - SpaceShip
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ public class SpaceShipBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shipPart = (GameObject) Resources.Load("Prefabs/SpaceShipPart");
+        shipPart = Resources.Load<GameObject>("Prefabs/SpaceShipPart");
         StartCoroutine(BuildShip());
     }
 
@@ -55,7 +55,7 @@ public class SpaceShipBuilder : MonoBehaviour
     {
         if (column == shipColumnCount - 1)
         {
-            SpaceShipPart spaceShipPart = sspList[Random.Range(0, sspList.Count - 1)];
+            SpaceShipPart spaceShipPart = sspList[Random.Range(0, sspList.Count)];
 
             spaceShipPart.attachmentSpawner.spawnsWithBooster = true;
             spaceShipPart.attachmentSpawner.Spawn();
