@@ -185,8 +185,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 7.613276}
-  m_Center: {x: 0.00000004768372, y: 0, z: -0.2917984}
+  m_Size: {x: 1.1316329, y: 1, z: 7.6132765}
+  m_Center: {x: -0.009402347, y: 0, z: -0.2917984}
 --- !u!54 &5347857320532645382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -295,8 +295,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 7.868041}
-  m_Center: {x: 0.00000004768372, y: 0, z: -0.28553098}
+  m_Size: {x: 1.1065717, y: 1, z: 7.8680415}
+  m_Center: {x: 0.0031346085, y: 0, z: -0.28553098}
 --- !u!54 &2840819678396744656
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -433,6 +433,11 @@ MonoBehaviour:
   shipDoor: {fileID: 0}
   horizontalDoorCount: 0
   attachmentSpawner: {fileID: 7872116996479058238}
+  hitsTaken: 0
+  hitsUntilBreak: 5
+  hasBroken: 0
+  hitsUntilDetach: 10
+  hasDetached: 0
 --- !u!54 &7896282725080228356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -463,6 +468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnsWithBooster: 0
   spawnsWithTurret: 0
+  spawnsWithSteeringWheel: 0
+  side: 0
+  operatablesInRoom: []
 --- !u!1 &8172139722968296930
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,8 +563,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 8.445352}
-  m_Center: {x: 0.000000047683717, y: 0, z: -0.6805054}
+  m_Size: {x: 1.0662913, y: 1, z: 8.445352}
+  m_Center: {x: 0.016572857, y: 0, z: -0.6805054}
 --- !u!54 &8688476010633993322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -665,8 +673,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 5.1835685}
-  m_Center: {x: 0.000000047683717, y: 0, z: 0.62047726}
+  m_Size: {x: 1.1252576, y: 1, z: 5.1835685}
+  m_Center: {x: -0.00626297, y: 0, z: 0.62047726}
 --- !u!54 &7857146408973251683
 Rigidbody:
   m_ObjectHideFlags: 0

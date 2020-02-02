@@ -14,6 +14,7 @@ public class Booster : Operatable
     public Rigidbody spaceShip;
 
     public List<ParticleSystem> particleSystems;
+    public AudioSource thrusterSoundMachine;
 
     private bool gasStarted;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class Booster : Operatable
         base.Start();
         SetParticleRate(0);
         spaceShip = GameObject.FindGameObjectWithTag("SpaceShip").GetComponent<Rigidbody>();
+        thrusterSoundMachine = GameObject.Find("ThrusterSoundMachine").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,17 @@ public class Booster : Operatable
                 {
                     gasStarted = false;
                     SetParticleRate(0);
+                    thrusterSoundMachine.Stop();
                 }
+            }
+        }
+        else
+        {
+            if (gasStarted)
+            {
+                gasStarted = false;
+                SetParticleRate(0);
+                thrusterSoundMachine.Stop();
             }
         }
     }
@@ -67,11 +79,8 @@ public class Booster : Operatable
         {
             gasStarted = true;
             SetParticleRate(50);
+            thrusterSoundMachine.Play();
         }
-        float direction = exhaust.rotation.y * -1;
-        
-        Vector3 force = new Vector3( speed, 0,direction * turningSpeed);
-        spaceShip.AddRelativeForce(force);
-        Debug.Log(spaceShip.velocity);
+        spaceShip.AddRelativeForce(Vector3.right * speed);
     }
 }

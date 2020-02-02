@@ -9,6 +9,8 @@
         <e p="EnemyFalcon.cs" t="Include" />
         <e p="EnemyHealth.cs" t="Include" />
         <e p="EnemyLaser.cs" t="Include" />
+        <e p="EnemySpawner.cs" t="Include" />
+        <e p="GameManager.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BackgroundScript.cs" t="Include" />
           <e p="Booster.cs" t="Include" />
@@ -29,6 +31,7 @@
         </e>
         <e p="ShipHealthSystem.cs" t="Include" />
         <e p="SpaceShip.cs" t="Include" />
+        <e p="ToolBox.cs" t="Include" />
       </e>
       <e p="SpaceBros.sln" t="IncludeFlat" />
       <e p="Temp/bin" t="ExcludeRecursive" />

@@ -11996,7 +11996,7 @@ GameObject:
   - component: {fileID: 1379309948659583343}
   m_Layer: 0
   m_Name: SpaceShipSteeringWheel
-  m_TagString: Untagged
+  m_TagString: Operatable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12031,10 +12031,15 @@ MonoBehaviour:
   personOperating: {fileID: 0}
   isBeingOperatedOn: 0
   operatorsInVicinity: []
+  operatablesInVicinity: []
   operatorIconSpawnLocation: {x: -1, y: 0, z: 1}
   operatorIconSpawnScale: 1
   operatorIconSpawnRotation: {x: 0, y: 0, z: 0, w: 0}
   operateIcon: {fileID: 0}
+  smoke: {fileID: 0}
+  smokeInstance: {fileID: 0}
+  isToolbox: 0
+  isBroken: 0
   spaceShip: {fileID: 0}
   turningSpeed: 50
 --- !u!135 &1379309948659583343

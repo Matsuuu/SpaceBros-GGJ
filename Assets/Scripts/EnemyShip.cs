@@ -10,6 +10,7 @@ public class EnemyShip : MonoBehaviour
     public float flySpeed;
 
     public Transform ship;
+
     // Start is called before the first frame update
     public void Start()
     {

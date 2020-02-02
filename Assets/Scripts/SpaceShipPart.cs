@@ -21,11 +21,29 @@ public class SpaceShipPart : MonoBehaviour
     public SpaceShipAttachmentSpawner attachmentSpawner;
 
     private int spawnedDoorCount;
+
+    private Color damageSplashRed;
+
+    public int hitsTaken;
+
+    public int hitsUntilBreak;
+    public bool hasBroken = false;
+
+    public int hitsUntilDetach;
+    public bool hasDetached = false;
+    public bool playerInRoom;
+    public Rigidbody rb;
+
+    private GameObject explosionParticles;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        damageSplashRed = Color.red;
+        damageSplashRed.a = 0.4f;
         attachmentSpawner = GetComponent<SpaceShipAttachmentSpawner>();
         renderer = GetComponent<Renderer>();
+        explosionParticles = Resources.Load<GameObject>("Prefabs/ExplosionParticles");
         CheckExits();
     }
 
@@ -56,6 +74,7 @@ public class SpaceShipPart : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            playerInRoom = true;
             if (renderer != null)
             {
                 Color materialColor = renderer.material.color;
@@ -76,21 +95,51 @@ public class SpaceShipPart : MonoBehaviour
         {
             StartCoroutine(DamageSplash());
             Destroy(other.transform.parent.gameObject);
+            hitsTaken++;
+            if (hitsTaken >= hitsUntilBreak && !hasBroken)
+            {
+                HandleBreaking();
+            }
+
+            if (hitsTaken >= hitsUntilDetach && !hasDetached)
+            {
+                HandleDetach();
+            }
         }
     }
 
     IEnumerator DamageSplash()
     {
         Color materialColor = renderer.material.color;
-        renderer.material.color = Color.red;
+        renderer.material.color = damageSplashRed;
         yield return new WaitForSeconds(0.4f);
         renderer.material.color = materialColor;
+    }
+
+    private void HandleBreaking()
+    {
+        hasBroken = true;
+        GameObject explosions = Instantiate(explosionParticles, transform.position + (Vector3.up * 2), transform.rotation);
+        attachmentSpawner.operatablesInRoom.ForEach(op => op.Break());
+    }
+
+    private void HandleDetach()
+    {
+        if (!playerInRoom)
+        {
+            transform.parent = null;
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.mass = 100;
+            hasDetached = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            playerInRoom = false;
             Color materialColor = renderer.material.color;
             materialColor.a = 0.9f;
             renderer.material.color = materialColor;

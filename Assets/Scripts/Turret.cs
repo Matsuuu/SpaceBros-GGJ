@@ -20,9 +20,12 @@ public class Turret : Operatable
     public List<Transform> laserExits;
 
     public GameObject laser;
+
+    public AudioSource laserSoundMachine;
     // Start is called before the first frame update
     void Start()
     {
+        laserSoundMachine = GameObject.Find("LaserSoundMachine").GetComponent<AudioSource>();
         startRotation = transform.localRotation;
         base.Start();
         canShoot = true;
@@ -42,7 +45,6 @@ public class Turret : Operatable
                 rotationY -= 360;
             }
 
-            Debug.Log(rotationY);
             if ((h >= 0.2f && rotationY <= maxY) || (h <= -0.2f && rotationY >= minY))
             {
                 //turret.Rotate(Vector3.up * (h * Time.deltaTime * turretTurnSpeed));
@@ -59,9 +61,9 @@ public class Turret : Operatable
 
     private IEnumerator Shoot()
     {
-        Debug.Log("Pew");
         laserExits.ForEach(exit =>
         {
+            laserSoundMachine.Play();
             Instantiate(laser, exit.transform.position, exit.rotation);
         });
         yield return new WaitForSeconds(cooldown);

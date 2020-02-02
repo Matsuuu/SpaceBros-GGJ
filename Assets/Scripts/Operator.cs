@@ -7,6 +7,7 @@ public class Operator : MonoBehaviour
     public Operatable operatableInVicinity = null;
     public PlayerScript playerScript;
     public Rigidbody rb;
+    public bool carryingToolbox;
 
     public string use;
     public string mount;
@@ -46,10 +47,13 @@ public class Operator : MonoBehaviour
             return;
         }
 
-        rb.isKinematic = true;
         operating = true;
         operatableInVicinity.StartOperating(this);
-        playerScript.canMove = false;
+        if (!operatableInVicinity.CompareTag("Toolbox"))
+        {
+            rb.isKinematic = true;
+            playerScript.canMove = false;
+        }
     }
 
     public void StopOperating()

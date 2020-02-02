@@ -16,6 +16,7 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
 
     private Vector3 attachmentOffset = Vector3.zero;
     private Quaternion attachmentRotation = Quaternion.identity;
+    public List<Operatable> operatablesInRoom = new List<Operatable>();
 
     public struct AttachmentToSpawn
     {
@@ -30,17 +31,6 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
             this.rotation = rotation;
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Spawn()
     {
@@ -52,7 +42,8 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
         attachments.ForEach(attachmentToSpawn =>
         {
             attachment = Resources.Load<GameObject>("Prefabs/" + attachmentToSpawn.name);
-            Instantiate(attachment, transform.position + attachmentToSpawn.offset, attachmentToSpawn.rotation, transform);
+            GameObject att = Instantiate(attachment, transform.position + attachmentToSpawn.offset, attachmentToSpawn.rotation, transform);
+            operatablesInRoom.Add(att.GetComponent<Operatable>());
         });
     }
 

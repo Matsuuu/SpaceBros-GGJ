@@ -5245,7 +5245,7 @@ GameObject:
   - component: {fileID: 6056935072896135736}
   m_Layer: 0
   m_Name: SpaceShipTurret
-  m_TagString: Untagged
+  m_TagString: Operatable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5281,10 +5281,15 @@ MonoBehaviour:
   isBeingOperatedOn: 0
   operatorsInVicinity:
   - {fileID: 0}
+  operatablesInVicinity: []
   operatorIconSpawnLocation: {x: 0, y: 10, z: 0}
   operatorIconSpawnScale: 0.8
   operatorIconSpawnRotation: {x: 0, y: 0, z: 0, w: 0}
   operateIcon: {fileID: 0}
+  smoke: {fileID: 0}
+  smokeInstance: {fileID: 0}
+  isToolbox: 0
+  isBroken: 0
   turretTurnSpeed: 90
   turret: {fileID: 6433795253244856546}
   cooldown: 0.1

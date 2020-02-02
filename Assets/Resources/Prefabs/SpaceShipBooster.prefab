@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1295644390836541516}
   m_Layer: 0
   m_Name: SpaceShipBooster
-  m_TagString: Untagged
+  m_TagString: Operatable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,11 +48,16 @@ MonoBehaviour:
   personOperating: {fileID: 0}
   isBeingOperatedOn: 0
   operatorsInVicinity: []
+  operatablesInVicinity: []
   operatorIconSpawnLocation: {x: 4, y: 5, z: 0}
   operatorIconSpawnScale: 0.2
   operatorIconSpawnRotation: {x: 0, y: 90, z: 70, w: 0}
   operateIcon: {fileID: 3399037546981338400, guid: 2d32c69b68070d4ec90ce7850911de88,
     type: 3}
+  smoke: {fileID: 0}
+  smokeInstance: {fileID: 0}
+  isToolbox: 0
+  isBroken: 0
   exhaustTurnSpeed: 30
   turningSpeed: 500
   speed: 40

@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - PlayerProjectile
   - EnemyProjectile
+  - Toolbox
+  - Operatable
   layers:
   - Default
   - TransparentFX
