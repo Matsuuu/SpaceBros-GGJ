@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 7872116996479058238}
   m_Layer: 0
   m_Name: SpaceShipPart
-  m_TagString: Untagged
+  m_TagString: SpaceShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTouchingDoor: 0
+  doorsTouchingThisRoom: []
   possibleDoors: 
   doorSpawnPossibility: 0
   doorSpawnOffset: 0
@@ -434,10 +435,13 @@ MonoBehaviour:
   horizontalDoorCount: 0
   attachmentSpawner: {fileID: 7872116996479058238}
   hitsTaken: 0
-  hitsUntilBreak: 5
+  hitsUntilBreak: 10
   hasBroken: 0
-  hitsUntilDetach: 10
+  hitsUntilDetach: 20
   hasDetached: 0
+  playerInRoom: 0
+  rb: {fileID: 0}
+  gm: {fileID: 0}
 --- !u!54 &7896282725080228356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -470,6 +474,7 @@ MonoBehaviour:
   spawnsWithTurret: 0
   spawnsWithSteeringWheel: 0
   side: 0
+  ssp: {fileID: 0}
   operatablesInRoom: []
 --- !u!1 &8172139722968296930
 GameObject:

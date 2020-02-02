@@ -57,15 +57,17 @@ MonoBehaviour:
   smoke: {fileID: 0}
   smokeInstance: {fileID: 0}
   isToolbox: 0
+  ssp: {fileID: 0}
   isBroken: 0
   exhaustTurnSpeed: 30
-  turningSpeed: 500
+  turningSpeed: 1
   speed: 40
   exhaust: {fileID: 2303827419723272207}
   spaceShip: {fileID: 0}
   particleSystems:
   - {fileID: 5674755847393296426}
   - {fileID: 4378608798917440275}
+  thrusterSoundMachine: {fileID: 0}
 --- !u!65 &1295644390836541516
 BoxCollider:
   m_ObjectHideFlags: 0

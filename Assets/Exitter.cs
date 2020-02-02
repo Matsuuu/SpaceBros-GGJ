@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class Exitter : MonoBehaviour
 {
-    public int detachedParts = 0;
-
-    public int totalParts;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +14,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void IncrementDetachedParts()
-    {
-        detachedParts++;
-        if (totalParts - detachedParts <= 2)
+        if (Input.GetButtonDown("Cancel"))
         {
-            SceneManager.LoadScene("Game_Over");
+            SceneManager.LoadScene("Start");
         }
     }
 }

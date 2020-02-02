@@ -21,8 +21,13 @@ public class Operatable : MonoBehaviour
     public GameObject smoke;
     public GameObject smokeInstance;
     public bool isToolbox;
+    public SpaceShipPart ssp;
 
     public bool isBroken = false;
+
+    private int hitsToFix = 60;
+
+    private int amountFixed = 0;
     // Start is called before the first frame update
     public void Start()
     {
@@ -69,7 +74,7 @@ public class Operatable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Operator @operator = other.GetComponent<Operator>();
-            if (@operator == personOperating || @operator.operating)
+            if (@operator == personOperating || (@operator.operating && !@operator.carryingToolbox))
             {
                 return;
             }
@@ -81,7 +86,6 @@ public class Operatable : MonoBehaviour
         {
             Operatable operatable = other.GetComponent<Operatable>();
             operatablesInVicinity.Remove(operatable);
-            
         }
     }
 
@@ -99,8 +103,12 @@ public class Operatable : MonoBehaviour
 
     public void StopOperating()
     {
-        personOperating.carryingToolbox = false;
-        personOperating = null;
+        if (personOperating)
+        {
+            personOperating.carryingToolbox = false;
+            personOperating = null;
+        }
+
         isBeingOperatedOn = false;
         CreateOperateIcon();
     }
@@ -127,6 +135,14 @@ public class Operatable : MonoBehaviour
 
     public void Fix()
     {
-        
+
+        amountFixed++;
+        if (amountFixed >= hitsToFix)
+        {
+            isBroken = false;
+            smokeInstance.SetActive(false);
+            ssp.hitsTaken = 0;
+            ssp.hasBroken = false;
+        }
     }
 }

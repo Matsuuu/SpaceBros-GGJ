@@ -32,11 +32,27 @@ public class ToolBox : Operatable
             {
                 if (operatablesInVicinity.Count > 0)
                 {
-                    repairSoundMachine.Play();
                     operatablesInVicinity.ForEach(operatable =>
                     {
-                        
+                        if (!operatable.isBroken)
+                        {
+                            return;
+                        }
+                        if (!repairSoundMachine.isPlaying)
+                        {
+                            repairSoundMachine.Play();
+                        }
+                        wrenchIcon.SetActive(true);
+                        operatable.Fix();
                     });
+                }
+            }
+            else
+            {
+                wrenchIcon.SetActive(false);
+                if (repairSoundMachine.isPlaying)
+                {
+                    repairSoundMachine.Stop();
                 }
             }
         }

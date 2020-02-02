@@ -13,6 +13,7 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
     private GameObject attachment;
 
     private List<AttachmentToSpawn> attachments = new List<AttachmentToSpawn>();
+    public SpaceShipPart ssp;
 
     private Vector3 attachmentOffset = Vector3.zero;
     private Quaternion attachmentRotation = Quaternion.identity;
@@ -43,7 +44,9 @@ public class SpaceShipAttachmentSpawner : MonoBehaviour
         {
             attachment = Resources.Load<GameObject>("Prefabs/" + attachmentToSpawn.name);
             GameObject att = Instantiate(attachment, transform.position + attachmentToSpawn.offset, attachmentToSpawn.rotation, transform);
-            operatablesInRoom.Add(att.GetComponent<Operatable>());
+            Operatable operatable = att.GetComponent<Operatable>();
+            operatable.ssp = ssp;
+            operatablesInRoom.Add(operatable);
         });
     }
 

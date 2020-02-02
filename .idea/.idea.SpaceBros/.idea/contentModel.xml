@@ -10,7 +10,10 @@
         <e p="EnemyHealth.cs" t="Include" />
         <e p="EnemyLaser.cs" t="Include" />
         <e p="EnemySpawner.cs" t="Include" />
+        <e p="Exitter.cs" t="Include" />
         <e p="GameManager.cs" t="Include" />
+        <e p="Quitter.cs" t="Include" />
+        <e p="SceneChanger.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BackgroundScript.cs" t="Include" />
           <e p="Booster.cs" t="Include" />

@@ -1740,8 +1740,11 @@ MonoBehaviour:
   smoke: {fileID: 0}
   smokeInstance: {fileID: 0}
   isToolbox: 1
+  ssp: {fileID: 0}
   isBroken: 0
+  repairSoundMachine: {fileID: 0}
   wrenchIcon: {fileID: 1668759681}
+  repairSoundMachine: {fileID: 0}
 --- !u!54 &1500708719
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -61,6 +61,10 @@ public class Operator : MonoBehaviour
         rb.isKinematic = false;
         operating = false;
         playerScript.canMove = true;
+        if (carryingToolbox)
+        {
+            operatableInVicinity = GameObject.FindGameObjectWithTag("Toolbox").GetComponent<Operatable>();
+        }
         operatableInVicinity.StopOperating();
     }
 

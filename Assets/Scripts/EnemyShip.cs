@@ -15,7 +15,7 @@ public class EnemyShip : MonoBehaviour
     public void Start()
     {
         ship = GameObject.FindGameObjectWithTag("SpaceShip").transform;
-        engageDistance = Random.Range(engageDistance - 5, engageDistance + 5);
+        engageDistance = Random.Range(engageDistance, engageDistance + 5);
     }
 
     // Update is called once per frame

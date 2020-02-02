@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engageDistance: 55
-  flySpeed: 10
+  flySpeed: 4
   ship: {fileID: 0}
   cooldown: 1
   laserSoundMachine: {fileID: 0}

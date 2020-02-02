@@ -9,6 +9,7 @@ public class SpaceShipPart : MonoBehaviour
 
     private new Renderer renderer;
     public bool isTouchingDoor;
+    public List<GameObject> doorsTouchingThisRoom = new List<GameObject>();
 
     public bool[] possibleDoors;
 
@@ -35,13 +36,17 @@ public class SpaceShipPart : MonoBehaviour
     public Rigidbody rb;
 
     private GameObject explosionParticles;
+
+    public GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody>();
         damageSplashRed = Color.red;
         damageSplashRed.a = 0.4f;
         attachmentSpawner = GetComponent<SpaceShipAttachmentSpawner>();
+        attachmentSpawner.ssp = this;
         renderer = GetComponent<Renderer>();
         explosionParticles = Resources.Load<GameObject>("Prefabs/ExplosionParticles");
         CheckExits();
@@ -85,6 +90,11 @@ public class SpaceShipPart : MonoBehaviour
 
         if (other.CompareTag("Door"))
         {
+            if (!doorsTouchingThisRoom.Contains(other.gameObject))
+            {
+                doorsTouchingThisRoom.Add(other.gameObject);
+            }
+
             isTouchingDoor = true;
         }
     }
@@ -127,11 +137,13 @@ public class SpaceShipPart : MonoBehaviour
     {
         if (!playerInRoom)
         {
+            doorsTouchingThisRoom.ForEach(Destroy);
             transform.parent = null;
             rb.isKinematic = false;
             rb.useGravity = true;
             rb.mass = 100;
             hasDetached = true;
+            gm.IncrementDetachedParts();
         }
     }
 

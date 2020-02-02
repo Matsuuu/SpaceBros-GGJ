@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public float maximumDistance;
 
     private GameObject enemyShip;
+
+    private int spawnCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,14 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(enemySpawnCooldown);
         Instantiate(enemyShip, GetSpawnPosition(), Quaternion.identity);
+        spawnCount++;
+        if (spawnCount % 20 == 0)
+        {
+            if (enemySpawnCooldown > 2)
+            {
+                enemySpawnCooldown--;
+            }
+        }
         yield return StartCoroutine(Spawner());
     }
 
